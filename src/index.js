@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import About from './About';
 import Shop from './Shop';
+import Item from './Item';
+
 
 const Nav = (props)=>{
 
@@ -23,12 +25,15 @@ const App = (props)=>{
         
         <Router>
             <Nav/>
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/shop" component={Shop}/>
-                <Route path="/about" component={About}/>
-                
-            </Switch>
+                <Switch>
+                    
+                    
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/shop" component={Shop}/>  
+                    <Route path="/about" component={About}/>
+                    <Route path="/item/:id" component={Item}/>
+                </Switch>
+    
 
         </Router>
 

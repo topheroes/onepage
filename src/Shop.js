@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const Shop = (props)=>{
+    
 
 const [item, setItem] = useState("");
 
 
 useEffect( ()=>{getItems()} ,[]);
+
 
 const getItems = async ()=>{
     
@@ -15,10 +18,8 @@ const getItems = async ()=>{
        
     const mass = Object.keys(obj);
     
-    const processed = mass.map( (e, i, m)=>{ return <p key={i}>{e}</p> }   );
-    //console.log(processed);
-
-    //const processed = mass.map( (e)=>{ <p>{e}}</p>  } );
+    const processed = mass.map( (e,i,m)=>{ return (<Link to={`/item/${e}`}><p key={i}>{e}</p></Link>) } )
+    
 
     setItem( processed );
 
@@ -28,7 +29,7 @@ const getItems = async ()=>{
     return (
         <>
             <h1>Shop page</h1> 
-            <h1>{item}</h1>
+            {item}
         </>
     )
 }
